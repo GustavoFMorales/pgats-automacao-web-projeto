@@ -1,8 +1,14 @@
 import usuario from '../fixtures/usuario.json';
 
-Cypress.Commands.add('login', (email, senha) => {
+Cypress.Commands.add('acessarPaginaInicial', () => {
   cy.visit('/');
+  cy.get('#slider').should('be.visible');
+});
+
+Cypress.Commands.add('login', (email, senha) => {
+  cy.acessarPaginaInicial();
   cy.get('a[href="/login"]').click();
+  cy.contains('h2', 'Login to your account').should('be.visible');
   cy.get('[data-qa="login-email"]').type(email);
   cy.get('[data-qa="login-password"]').type(senha);
   cy.get('[data-qa="login-button"]').click();
@@ -16,16 +22,20 @@ Cypress.Commands.add('clicaBotaoProduto', () => {
 // Preenche as duas telas de cadastro pela interface
 Cypress.Commands.add('cadastrarUsuario', (email) => {
   cy.get('a[href="/login"]').click();
+  cy.contains('h2', 'New User Signup!').should('be.visible');
   cy.get('[data-qa="signup-name"]').type(usuario.nome);
   cy.get('[data-qa="signup-email"]').type(email);
   cy.get('[data-qa="signup-button"]').click();
 
   // Informações da conta
+  cy.contains('h2', 'Enter Account Information', { matchCase: false }).should('be.visible');
   cy.get('#id_gender1').check();
   cy.get('[data-qa="password"]').type(usuario.senha);
   cy.get('[data-qa="days"]').select(usuario.dataNascimento.dia);
   cy.get('[data-qa="months"]').select(usuario.dataNascimento.mes);
   cy.get('[data-qa="years"]').select(usuario.dataNascimento.ano);
+  cy.get('#newsletter').check();
+  cy.get('#optin').check();
 
   // Informações pessoais
   cy.get('[data-qa="first_name"]').type(usuario.primeiroNome);
@@ -34,6 +44,7 @@ Cypress.Commands.add('cadastrarUsuario', (email) => {
 
   // Endereço
   cy.get('[data-qa="address"]').type(usuario.endereco);
+  cy.get('[data-qa="address2"]').type(usuario.complemento);
   cy.get('[data-qa="country"]').select(usuario.pais);
   cy.get('[data-qa="state"]').type(usuario.estado);
   cy.get('[data-qa="city"]').type(usuario.cidade);
@@ -60,6 +71,7 @@ Cypress.Commands.add('criarUsuarioApi', (email) => {
       lastname: usuario.sobrenome,
       company: usuario.empresa,
       address1: usuario.endereco,
+      address2: usuario.complemento,
       country: usuario.pais,
       state: usuario.estado,
       city: usuario.cidade,

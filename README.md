@@ -4,16 +4,20 @@ Testes automatizados de interface do site [Automation Exercise](https://automati
 
 ## Cenários automatizados
 
-| Arquivo | Cenários |
-| --- | --- |
-| `login_automation-exercise.cy.js` | Login com dados corretos, senha incorreta e e-mail incorreto |
-| `logout_automation-exercise.cy.js` | Logout do usuário logado |
-| `cadastro_usuario_automation-exercise.cy.js` | Cadastro de um novo usuário |
-| `cadastro_usuario_existente_automation-exercise.cy.js` | Cadastro com e-mail já existente |
-| `detalhes_produto_automation-exercise.cy.js` | Lista de produtos e página de detalhes |
-| `pesquisar_produto_automation-exercise.cy.js` | Pesquisa de produto |
-| `assinatura_pagina_automation-exercise.cy.js` | Assinatura da newsletter na página inicial |
-| `realizar_pedido_automation-exercise.cy.js` | Pedido com cadastro antes da compra e com login antes da compra |
+Casos da página [Test Cases](https://automationexercise.com/test_cases) do site:
+
+| Caso | Cenário | Arquivo |
+| --- | --- | --- |
+| 1 | Cadastro de um novo usuário | `cadastro_usuario_automation-exercise.cy.js` |
+| 2 | Login com e-mail e senha corretos | `login_automation-exercise.cy.js` |
+| 3 | Login com e-mail e senha incorretos | `login_automation-exercise.cy.js` |
+| 4 | Logout do usuário | `logout_automation-exercise.cy.js` |
+| 5 | Cadastro com e-mail já existente | `cadastro_usuario_existente_automation-exercise.cy.js` |
+| 8 | Lista de produtos e página de detalhes | `detalhes_produto_automation-exercise.cy.js` |
+| 9 | Pesquisa de produto | `pesquisar_produto_automation-exercise.cy.js` |
+| 10 | Assinatura na página inicial | `assinatura_pagina_automation-exercise.cy.js` |
+| 15 | Pedido com cadastro antes da compra | `realizar_pedido_automation-exercise.cy.js` |
+| 16 | Pedido com login antes da compra | `realizar_pedido_automation-exercise.cy.js` |
 
 ## Estrutura
 

@@ -1,12 +1,10 @@
 import usuario from '../fixtures/usuario.json';
 
 describe('Automation Exercise realizar pedido', () => {
-  it('Cadastrar usuário antes de finalizar a compra', () => {
+  it('Caso 15 - Cadastrar usuário antes de finalizar a compra', () => {
     const email = `jose.santos_${Date.now()}@gmail.com`;
 
-    cy.visit('/');
-    cy.get('#slider').should('be.visible');
-
+    cy.acessarPaginaInicial();
     cy.cadastrarUsuario(email);
     cy.get('[data-qa="account-created"]').should('be.visible');
     cy.get('[data-qa="continue-button"]').click();
@@ -22,14 +20,11 @@ describe('Automation Exercise realizar pedido', () => {
     cy.excluirConta();
   });
 
-  it('Fazer login antes de finalizar a compra', () => {
+  it('Caso 16 - Fazer login antes de finalizar a compra', () => {
     const email = `jose.santos_${Date.now()}@gmail.com`;
 
     // Cria a conta pela API, pois ela será excluída no final do teste
     cy.criarUsuarioApi(email);
-
-    cy.visit('/');
-    cy.get('#slider').should('be.visible');
 
     cy.login(email, usuario.senha);
     cy.contains(`Logged in as ${usuario.nome}`).should('be.visible');
