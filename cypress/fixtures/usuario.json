@@ -1,0 +1,27 @@
+{
+  "nome": "José Santos",
+  "email": "jose.santos@gmail.com",
+  "senha": "12345",
+  "dataNascimento": {
+    "dia": "5",
+    "mes": "August",
+    "mesNumero": "8",
+    "ano": "1999"
+  },
+  "primeiroNome": "José",
+  "sobrenome": "Santos",
+  "empresa": "PGATS",
+  "endereco": "rua 123, centro",
+  "pais": "Israel",
+  "estado": "Israel",
+  "cidade": "Israel",
+  "cep": "0931161",
+  "celular": "1726358346",
+  "cartao": {
+    "nome": "José Santos",
+    "numero": "4111111111111111",
+    "cvc": "123",
+    "mesValidade": "12",
+    "anoValidade": "2030"
+  }
+}
